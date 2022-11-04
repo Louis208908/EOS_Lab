@@ -5,6 +5,7 @@
 #include <unistd.h>
 
 int main(int argc, char const *argv[]){
+
     if (argc != 2){
         printf("please input testcase.\n");
         exit(0);
@@ -20,16 +21,16 @@ int main(int argc, char const *argv[]){
 
     int i, ret;
     char digit;
-    while (1){
-        for (i = 0; i < strlen(argv[1]); i++){
-            digit = argv[1][i];
-            ret = write(fd, &digit, 1);
-            printf("%c\n", digit);
-            sleep(1);
-        }
+
+    for (i = 0; i < strlen(argv[1]); i++){
+        digit = argv[1][i];
+        ret = write(fd, &digit, 1);
+        printf("%c\n", digit);
+        sleep(1);
     }
 
-    // 少了一個fd的close 所以kernel會被占用
+    close(fd);
+    
 
     return 0;
 }
