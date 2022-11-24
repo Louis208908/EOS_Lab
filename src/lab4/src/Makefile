@@ -20,3 +20,7 @@ all:
 clean:
 
 	make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- -C $(KDIR) M=$(shell pwd) clean
+
+	rm writer
+
+	rm reader

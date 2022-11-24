@@ -60,7 +60,7 @@ def update():
     if data:
         d = []
         for i in data:
-            d.append(ord(i))
+            d.append(ord(i) - 48)
         d = tuple(d)
         print d
         dig.show(d)
